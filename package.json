@@ -1,0 +1,69 @@
+{
+  "name": "data-encrypter",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Smdeveloper1248/data-encrypter",
+  "author": {
+    "name": "Data Encrypter Developer",
+    "email": "smdeveloper1248@gmail.com"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:linux": "electron-builder --linux AppImage deb",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "archiver": "^8.0.0",
+    "unzipper": "^0.12.5"
+  },
+  "build": {
+    "appId": "com.dataencrypter.app",
+    "productName": "Data Encrypter",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "select.html",
+      "select.css",
+      "select.js",
+      "archive/**/*",
+      "crypto/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "linux": {
+      "icon": "assets/logo.png",
+      "maintainer": "Data Encrypter Developer <smdeveloper1248@gmail.com>",
+      "category": "Utility",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

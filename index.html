@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self';"
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Encrypter — File Encryption</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <header class="app-header">
+            <img src="assets/logo.png" alt="File Encryptor Logo" class="app-logo">
+            <div>
+                <p class="eyebrow">PRIVATE FILE TOOLKIT</p>
+                <h1>Data Encrypter</h1>
+                <p class="subtitle">Protect files and folders with a password, or restore an encrypted archive.</p>
+            </div>
+        </header>
+
+        <div class="workflow-grid">
+            <section class="workflow-card" aria-labelledby="encryptHeading">
+                <div class="card-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <p class="eyebrow">PROTECT YOUR DATA</p>
+                        <h2 id="encryptHeading">Encrypt</h2>
+                    </div>
+                </div>
+
+                <p class="card-description">Choose a file or folder to create a password-protected encrypted archive.</p>
+
+                <button id="selectButton" class="secondary-button full-width">
+                    <span aria-hidden="true">＋</span> Select file or folder
+                </button>
+
+                <p id="selectedItem" class="selection-display">Nothing selected</p>
+
+                <div class="password-section">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Enter password" autocomplete="new-password">
+                        <button type="button" id="togglePassword" class="password-toggle" aria-label="Show password">👁</button>
+                    </div>
+                </div>
+
+                <button id="encryptButton" class="primary-button full-width" disabled>Encrypt files</button>
+                <div id="encryptProgress" class="progress-panel" hidden>
+                    <div class="progress-label"><span id="encryptProgressLabel">Preparing...</span><span id="encryptProgressValue">0%</span></div>
+                    <progress id="encryptProgressBar" max="100" value="0" aria-label="Encryption progress"></progress>
+                    <button id="cancelEncryptButton" class="cancel-button full-width">Stop encryption</button>
+                </div>
+                <p id="encryptionStatus" class="operation-status" aria-live="polite"></p>
+            </section>
+
+            <section class="workflow-card" aria-labelledby="decryptHeading">
+                <div class="card-heading">
+                    <span class="step-number">02</span>
+                    <div>
+                        <p class="eyebrow">RESTORE YOUR DATA</p>
+                        <h2 id="decryptHeading">Decrypt</h2>
+                    </div>
+                </div>
+
+                <p class="card-description">Select a Data Encrypter <code>.enc</code> file and enter the password used to protect it.</p>
+
+                <button id="selectEncryptedButton" class="secondary-button full-width">
+                    <span aria-hidden="true">＋</span> Select encrypted file
+                </button>
+
+                <p id="selectedEncryptedFile" class="selection-display">Nothing selected</p>
+
+                <div class="password-section">
+                    <label for="decryptPassword">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="decryptPassword" placeholder="Enter password" autocomplete="current-password">
+                        <button type="button" id="toggleDecryptPassword" class="password-toggle" aria-label="Show password">👁</button>
+                    </div>
+                </div>
+
+                <button id="decryptButton" class="primary-button full-width" disabled>Decrypt archive</button>
+                <div id="decryptProgress" class="progress-panel" hidden>
+                    <div class="progress-label"><span id="decryptProgressLabel">Preparing...</span><span id="decryptProgressValue">0%</span></div>
+                    <progress id="decryptProgressBar" max="100" value="0" aria-label="Decryption progress"></progress>
+                    <button id="cancelDecryptButton" class="cancel-button full-width">Stop decryption</button>
+                </div>
+                <p id="decryptionStatus" class="operation-status" aria-live="polite"></p>
+            </section>
+        </div>
+
+        <footer class="app-footer">Your files stay on this device.</footer>
+    </main>
+
+    <script src="renderer.js"></script>
+
+</body>
+</html>
