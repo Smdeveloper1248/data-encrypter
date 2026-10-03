@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog, shell } = require("electron");
 const fs = require("fs");
 const path = require("path");
 const { createZip, extractZip } = require("./archive/archive");
@@ -28,6 +28,16 @@ function createWindow() {
             contextIsolation: true,
             nodeIntegration: false
         }
+    });
+
+    mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+        const channelUrl = "https://www.youtube.com/@SMDeveloper112";
+        if (url === channelUrl) {
+            shell.openExternal(url).catch((error) => {
+                console.error("Could not open the YouTube channel:", error);
+            });
+        }
+        return { action: "deny" };
     });
 
     mainWindow.loadFile("index.html");

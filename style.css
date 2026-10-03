@@ -340,8 +340,32 @@ progress::-webkit-progress-value { background: linear-gradient(90deg, #c92f3c, #
 .app-footer {
     margin-top: 24px;
     color: #687386;
-    font-size: 11px;
+    font-size: 14px;
     text-align: center;
+}
+
+.app-footer p {
+    margin: 0 0 6px;
+}
+
+.app-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    vertical-align: -3px;
+    color: var(--accent-bright);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.youtube-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 720px) {
