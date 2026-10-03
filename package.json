@@ -57,7 +57,7 @@
       "createStartMenuShortcut": true
     },
     "linux": {
-      "icon": "assets/logo.png",
+      "icon": "assets/icons",
       "maintainer": "Data Encrypter Developer <smdeveloper1248@gmail.com>",
       "category": "Utility",
       "target": [
